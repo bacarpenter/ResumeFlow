@@ -1,0 +1,323 @@
+% Resume Template for Pandoc Markdown to PDF Conversion
+
+% Document class: article with 11pt font size
+\documentclass[11pt]{article}
+
+% ============================================================================
+% PACKAGE IMPORTS
+% ============================================================================
+
+% Page layout and margins
+\usepackage{geometry}
+
+% Font and text formatting
+\usepackage{fontspec}                 % Allows custom fonts (requires XeLaTeX or LuaLaTeX)
+\usepackage{microtype}                % Improves text spacing and readability
+\usepackage{titlesec}                 % Customize section headings
+\usepackage{enumitem}                 % Enhanced list formatting
+
+% Colors and graphics
+\usepackage{xcolor}                   % Define and use colors
+\usepackage{graphicx}                 % Include images if needed
+
+% Links and URLs
+\usepackage{hyperref}                 % Clickable links and URLs
+\usepackage{url}                      % Better URL formatting
+
+
+% Table formatting
+\usepackage{tabularx}                 % Advanced table formatting
+\usepackage{array}                    % Enhanced array and table features
+\usepackage{longtable}                % Tables that can break across pages
+\usepackage{booktabs}                 % Professional table formatting
+
+% Code formatting
+\usepackage{fancyvrb}                 % Enhanced verbatim environments
+\usepackage{listings}                 % Code syntax highlighting (optional)
+
+% ============================================================================
+% PANDOC COMPATIBILITY COMMANDS
+% ============================================================================
+
+% Define \tightlist command
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Define \passthrough for inline code
+\providecommand{\passthrough}[1]{#1}
+
+% Define commands for handling code blocks
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+  commandchars=\\\{\},
+  breaklines=true,
+  breakanywhere=true
+}
+
+% Define commands for quote blocks
+\providecommand{\quote}[1]{\begin{quote}#1\end{quote}}
+
+% Ensure compatibility with pandoc table generation
+\providecommand{\toprule}{\hline}
+\providecommand{\midrule}{\hline}
+\providecommand{\bottomrule}{\hline}
+
+% Handle strikethrough text (if supported)
+\providecommand{\st}[1]{\sout{#1}}
+
+% ============================================================================
+% FONT CONFIGURATION
+% ============================================================================
+
+% Set main font (requires system fonts or font files)
+% Falls back to Gentium Plus only when mainfont is not set in YAML front matter
+$if(mainfont)$
+$else$
+\setmainfont{Gentium Plus}[
+    UprightFont = *-Regular,
+    BoldFont = *-Bold,
+    ItalicFont = *-Italic
+]
+$endif$
+
+% ============================================================================
+% COLOR DEFINITIONS
+% ============================================================================
+
+\definecolor{darkblue}{RGB}{0, 51, 102}      % Dark blue for headings
+\definecolor{mediumgray}{RGB}{102, 102, 102}  % Medium gray for dates/details
+\definecolor{lightgray}{RGB}{240, 240, 240}   % Light gray for subtle backgrounds
+
+% ============================================================================
+% URL AND LINK CONFIGURATION
+% ============================================================================
+
+% Configure URL breaking behavior
+\def\UrlBreaks{\do\/\do-\do.\do=\do?\do&\do_\do,\do;\do+\do:\do\%\do\#}
+\def\UrlBigBreaks{\do\:\do\-\do\.\do\/\do\=\do\?\do\&}
+
+% Set URL style
+\urlstyle{same}  % Use the same font as surrounding text
+
+% Configure hyperref for better link breaking
+\hypersetup{
+    colorlinks=true,        % Color links instead of boxes
+    linkcolor=darkblue,     % Internal link color
+    urlcolor=darkblue,      % URL color
+    citecolor=darkblue,     % Citation color
+    filecolor=darkblue,     % File link color
+    pdfborder={0 0 0},      % Remove border around links
+    breaklinks=true,        % Allow links to break across lines
+    hidelinks=false,        % Keep link coloring
+    hypertexnames=false,    % Avoid duplicate anchor warnings
+    linktocpage=false,      % Link entire text, not just page numbers
+    bookmarks=true,         % Create PDF bookmarks
+    bookmarksopen=true,     % Open bookmarks panel
+    pdfdisplaydoctitle=true % Display document title
+}
+
+% Additional configuration for URL line breaking
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
+
+% Configure penalties for better URL breaking
+\sloppy  % Allow slightly looser spacing to help with line breaking
+\tolerance=1000
+\emergencystretch=3em
+\hyphenpenalty=10000
+\exhyphenpenalty=100
+
+
+% ============================================================================
+% PAGE LAYOUT SETTINGS
+% ============================================================================
+
+\pagestyle{empty}           % Remove page numbers and headers
+\linespread{1.08}
+\setlength{\parindent}{0pt} % Remove paragraph indentation
+\setlength{\parskip}{3pt}   % Add space between paragraphs
+
+% ============================================================================
+% SECTION HEADING CUSTOMIZATION
+% ============================================================================
+
+% Customize section headings (# in markdown)
+\titleformat{\section}
+    {\Large\bfseries\color{darkblue}}  % Font size, weight, and color
+    {}                                  % No numbering
+    {0em}                              % No spacing before title
+    {}                                 % No additional formatting
+    [\titlerule]                       % Add horizontal line after title
+
+% Customize subsection headings (## in markdown)
+\titleformat{\subsection}
+    {\large\bfseries}
+    {}
+    {0em}
+    {}
+    [\vspace{-13pt}\textcolor{mediumgray}{\titlerule[0.4pt]}\vspace{-4pt}]
+
+% Customize subsubsection headings (### in markdown)
+\titleformat{\subsubsection}
+    {\normalsize\bfseries}
+    {}
+    {0em}
+    {}
+
+% Adjust spacing around section headings
+\titlespacing*{\section}{0pt}{6pt}{3pt}         % left, before, after
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}      % left, before, after
+\titlespacing*{\subsubsection}{0pt}{3pt}{-2pt}  % left, before, after
+
+% ============================================================================
+% LIST FORMATTING
+% ============================================================================
+
+% Customize bullet points and numbered lists
+\setlist[itemize,1]{
+    leftmargin=*,               % Align with text
+    itemsep=1pt,               % Space between items at this level
+    parsep=0pt,                % Space between paragraphs within items
+    topsep=1pt,                % Space before and after the list
+    partopsep=0pt,             % Additional space when list starts new paragraph
+}
+
+\setlist[itemize,2]{
+    leftmargin=*,               % Align with text
+    itemsep=1pt,               % Slightly less space for nested items
+    parsep=0pt,                % Space between paragraphs within items
+    topsep=2pt,                % Small space before nested list
+    partopsep=0pt,             % Additional space when list starts new paragraph
+}
+
+\setlist[itemize,3]{
+    leftmargin=*,               % Align with text
+    itemsep=1pt,               % Space for deeply nested items
+    parsep=0pt,                % Space between paragraphs within items
+    topsep=2pt,                % Small space before nested list
+    partopsep=0pt,             % Additional space when list starts new paragraph
+}
+
+\setlist[enumerate,1]{
+    leftmargin=*,               % Align with text
+    itemsep=1pt,               % Space between items at this level
+    parsep=0pt,                % Space between paragraphs within items
+    topsep=1pt,                % Space before and after the list
+    partopsep=0pt,             % Additional space when list starts new paragraph
+}
+
+\setlist[enumerate,2]{
+    leftmargin=*,               % Align with text
+    itemsep=1pt,               % Slightly less space for nested items
+    parsep=0pt,                % Space between paragraphs within items
+    topsep=2pt,                % Small space before nested list
+    partopsep=0pt,             % Additional space when list starts new paragraph
+}
+
+\setlist[enumerate,3]{
+    leftmargin=*,               % Align with text
+    itemsep=1pt,               % Space for deeply nested items
+    parsep=0pt,                % Space between paragraphs within items
+    topsep=2pt,                % Small space before nested list
+    partopsep=0pt,             % Additional space when list starts new paragraph
+}
+
+% ============================================================================
+% CODE BLOCK FORMATTING
+% ============================================================================
+
+% Style for code blocks
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+
+% ============================================================================
+% PANDOC VARIABLES AND CONDITIONALS
+% ============================================================================
+
+% These variables can be set in your markdown YAML front matter to customize appearance and override defaults
+
+% Font customization
+$if(mainfont)$
+\setmainfont{$mainfont$}
+$endif$
+
+$if(fontsize)$
+\renewcommand{\normalsize}{\fontsize{$fontsize$}{$fontsize$pt}\selectfont}
+$endif$
+
+% Page margins
+$if(margin)$
+\geometry{margin=$margin$}
+$else$
+\geometry{
+  top=$if(top-margin)$$top-margin$$else$1in$endif$,
+  bottom=$if(bottom-margin)$$bottom-margin$$else$1in$endif$,
+  left=$if(left-margin)$$left-margin$$else$1in$endif$,
+  right=$if(right-margin)$$right-margin$$else$1in$endif$
+}
+$endif$
+
+% Section title customization
+$if(title-color)$
+\titleformat{\section}
+    {\Large\bfseries\color{$title-color$}}
+    {}
+    {0em}
+    {}
+    [\titlerule]
+$endif$
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+% ============================================================================
+% DOCUMENT BEGINS HERE
+% ============================================================================
+
+\begin{document}
+
+% ============================================================================
+% MAIN CONTENT
+% ============================================================================
+
+% This is where pandoc will insert your markdown content
+% The markdown will be converted to LaTeX automatically
+
+$body$
+
+% ============================================================================
+% DOCUMENT ENDS HERE
+% ============================================================================
+
+\end{document}

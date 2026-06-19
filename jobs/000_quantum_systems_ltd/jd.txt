@@ -1,0 +1,28 @@
+Backend Developer — Quantum Systems Ltd. (Ottawa, ON / Remote)
+
+About Us
+Quantum Systems Ltd. builds distributed infrastructure tooling for enterprise clients in the telecommunications and financial services sectors. Our backend systems handle millions of events per day and we take reliability and correctness seriously. We're a team of 12 engineers who move fast but don't cut corners.
+
+Role
+We're looking for a Backend Developer to join our core platform team. You'll design, build, and maintain the services that power our data ingestion and processing pipeline. This is a hands-on engineering role — you'll spend most of your time writing Go, debugging distributed systems issues, and iterating on our PostgreSQL schema and query patterns.
+
+Responsibilities
+- Build and maintain backend microservices in Go
+- Design and optimize PostgreSQL schemas and queries for high-throughput workloads
+- Containerize services with Docker and maintain our Docker Compose and Kubernetes configurations
+- Participate in on-call rotation and debug production incidents in distributed systems
+- Write and maintain CI/CD pipelines (GitHub Actions)
+- Contribute to internal documentation and architecture decision records
+
+Requirements
+- Proficiency in Go or strong experience in another compiled systems language (C++, Rust, Java) with willingness to learn Go
+- Experience with PostgreSQL and relational database design
+- Familiarity with Docker and containerized deployment
+- Understanding of distributed systems concepts: consistency, availability, fault tolerance
+- Comfortable in a Linux environment
+- Strong written communication — we write thorough ADRs and incident post-mortems
+
+Nice to Have
+- Experience with Kubernetes or other orchestration
+- Exposure to CI/CD tooling (GitHub Actions, Jenkins)
+- Network programming background

@@ -1,0 +1,6 @@
+[project]
+name = "resumeflow"
+version = "0.1.0"
+description = "AI-assisted Markdown-to-PDF resume tailoring toolkit using Claude Code"
+requires-python = ">=3.9"
+dependencies = []

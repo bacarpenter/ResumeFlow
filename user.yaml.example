@@ -1,0 +1,9 @@
+# ResumeFlow — Personal Configuration
+# Copy this file to user.yaml and fill in your details, then run: python3 setup.py
+# user.yaml is gitignored and will never be committed.
+
+name: "Jane Smith"
+email: "jane.smith@example.com"
+phone: "(555) 123-4567"
+linkedin: "linkedin.com/in/jane-smith"
+location: "City, Province"

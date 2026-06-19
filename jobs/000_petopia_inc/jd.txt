@@ -1,0 +1,27 @@
+Software Support Analyst — Petopia Inc. (Remote)
+
+About Us
+Petopia Inc. is a SaaS platform that powers municipal pet licensing programs across North America. We help reunite lost pets with their owners by maintaining accurate, up-to-date pet records for over five million animals. Our small but mighty support team is the frontline between our municipal partners and the platform.
+
+Role
+We're looking for a Software Support Analyst to join our remote operations team. You'll own the support queue, investigate integration issues, triage bugs, and build automations to reduce repetitive work. You'll collaborate closely with the QA and development teams to document issues and verify fixes.
+
+Responsibilities
+- Manage incoming support tickets via Zendesk, ensuring timely response within SLA
+- Investigate and reproduce API integration issues reported by municipal partners
+- Write clear bug reports and work with QA/dev to track issues to resolution
+- Build and maintain Zendesk automations, macros, and triggers to improve throughput
+- Write Python scripts to automate repetitive data tasks
+- Maintain internal documentation for support processes and partner configurations
+
+Requirements
+- Experience with Zendesk or similar ticket management platforms
+- Comfortable with APIs — reading documentation, testing endpoints, diagnosing failures
+- Python scripting ability (data processing, automation)
+- Strong written communication — you'll be writing to municipal government contacts
+- Systematic and detail-oriented; you notice when something looks wrong
+- Experience in a SaaS or technical support environment is a plus
+
+Nice to Have
+- Exposure to CI/CD workflows or QA processes
+- Familiarity with SQL for querying support data
