@@ -4,14 +4,16 @@ AI-assisted job application toolkit: write your resume once in Markdown, then le
 
 Built with [Claude Code](https://claude.ai/code) agent skills, Pandoc, and XeLaTeX.
 
-## How it works
+## Quick Start
 
-1. **`python3 setup.py`** — enter your name, email, phone, and LinkedIn once
-2. **`/gather-background`** in Claude Code — paste your existing resume or answer questions; Claude builds a structured career profile and optionally drafts your base resumes
-3. **`/tailor-resume`** in Claude Code — paste company name, role, and job description; Claude picks the right base resume, rewrites bullets to match ATS keywords, scaffolds a cover letter template for you to write manually, compiles the PDF, and logs the application
-4. **Write your cover letter** — open `jobs/NNN_company/letter.md` and fill in the body (3-4 paragraphs)
-5. **`make letter`** — compile the cover letter PDF when ready
-6. **`make dashboard`** — generate an HTML status board from `tracker.csv`
+1. Run **`python3 setup.py`** — enter your name, email, phone, and LinkedIn once
+2. Start Claude Code (`claude`)
+3. **`/gather-background`** in Claude Code - paste your existing resume or answer questions; Claude builds a structured career profile and optionally drafts your base resumes
+4. **`/tailor-resume`** in Claude Code — paste company name, role, and job description; Claude picks the right base resume, rewrites bullets to match ATS keywords, scaffolds a cover letter template for you to write manually, compiles the PDF, and logs the application all automatically.
+5. Visit the job directory (`/jobs/NNN_company/resume.md`) and make further edits to your resume as you wish
+6. **Write your cover letter** — open `jobs/NNN_company/letter.md` and fill in the body (3-4 paragraphs)
+7. **`make open`** - build and open the letter and resume PDFs
+8. **`make dashboard`** — generate and open an HTML status board from `tracker.csv`
 
 ## Features
 
