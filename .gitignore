@@ -5,6 +5,17 @@ jobs/**/*.pdf
 # Personal config — created by setup.py, never committed
 user.yaml
 
+# Personal career profile — written by /gather-background, never committed
+markdown/background.md
+
+# Application tracker — contains your real job history, never committed
+tracker.csv
+
+# Real job applications (001+) — demo entries (000_*) remain tracked
+jobs/00[1-9]_*/
+jobs/0[1-9][0-9]_*/
+jobs/[1-9][0-9][0-9]_*/
+
 # Personal signature image — user supplies their own
 template/signature.png
 jobs/**/signature.png
