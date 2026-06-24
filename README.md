@@ -4,36 +4,6 @@ AI-assisted job application toolkit: write your resume once in Markdown, then le
 
 Built with [Claude Code](https://claude.ai/code) agent skills, Pandoc, and XeLaTeX.
 
-## Quick Start
-
-1. Run **`python3 setup.py`** — enter your name, email, phone, and LinkedIn once
-2. Start Claude Code (`claude`)
-3. **`/gather-background`** in Claude Code - paste your existing resume or answer questions; Claude builds a structured career profile and optionally drafts your base resumes
-4. **`/tailor-resume`** in Claude Code — paste company name, role, and job description; Claude picks the right base resume, rewrites bullets to match ATS keywords, scaffolds a cover letter template for you to write manually, compiles the PDF, and logs the application all automatically.
-5. Visit the job directory (`/jobs/NNN_company/resume.md`) and make further edits to your resume as you wish
-6. **Write your cover letter** — open `jobs/NNN_company/letter.md` and fill in the body (3-4 paragraphs)
-7. **`make open`** - build and open the letter and resume PDFs
-8. **`make dashboard`** — generate and open an HTML status board from `tracker.csv`
-
-## Features
-
-- Markdown-first resume authoring — portable, diffable, version-controlled
-- Two base resume strategies: technical (projects + engineering skills) vs. general (service + operations)
-- AI-assisted ATS keyword targeting via `/tailor-resume` Claude skill
-- AI-powered onboarding via `/gather-background` — no blank page
-- Manual cover letters — AI scaffolds the header, you write the content
-- Application tracking dashboard (HTML, generated from CSV)
-- Per-job directories keep every application's source self-contained
-- Zero external Python dependencies — just pandoc and xelatex
-
-## Prerequisites
-
-- **macOS or Linux**
-- **pandoc** — `brew install pandoc`
-- **XeLaTeX** — `brew install --cask mactex` (or install TeX Live on Linux)
-- **Python 3.9+** — `python3 --version`
-- **Claude Code** — [claude.ai/code](https://claude.ai/code) (for AI tailoring)
-
 ## Quick start
 
 ```bash
@@ -55,6 +25,36 @@ open output/resume.pdf
 /tailor-resume
 # → paste: Company Name (line 1), Job Title (line 2), full JD (remaining lines)
 ```
+
+
+## How It Works
+
+1. **`python3 setup.py`** — enter your name, email, phone, and LinkedIn once
+2. **`/gather-background`** in Claude Code - paste your existing resume or answer questions; Claude builds a structured career profile and optionally drafts your base resumes
+3. **`/tailor-resume`** in Claude Code — paste company name, role, and job description; Claude picks the right base resume, rewrites bullets to match ATS keywords, scaffolds a cover letter template for you to write manually, compiles the PDF, and logs the application all automatically.
+4. Visit the job directory (`/jobs/NNN_company/resume.md`) and make further edits to your resume as you wish
+5. **Write your cover letter** — open `jobs/NNN_company/letter.md` and fill in the body (3-4 paragraphs)
+6. **`make open`** - build and open the letter and resume PDFs
+7. **`make dashboard`** — generate and open an HTML status board from `tracker.csv`
+
+## Features
+
+- Markdown-first resume authoring — portable, diffable, version-controlled
+- Two base resume strategies: technical (projects + engineering skills) vs. general (service + operations)
+- AI-assisted ATS keyword targeting via `/tailor-resume` Claude skill
+- AI-powered onboarding via `/gather-background` — no blank page
+- Manual cover letters — AI scaffolds the header, you write the content
+- Application tracking dashboard (HTML, generated from CSV)
+- Per-job directories keep every application's source self-contained
+- Zero external Python dependencies — just pandoc and xelatex
+
+## Prerequisites
+
+- **macOS or Linux**
+- **pandoc** — `brew install pandoc`
+- **XeLaTeX** — `brew install --cask mactex` (or install TeX Live on Linux)
+- **Python 3.9+** — `python3 --version`
+- **Claude Code** — [claude.ai/code](https://claude.ai/code) (for AI tailoring)
 
 ## Project structure
 
